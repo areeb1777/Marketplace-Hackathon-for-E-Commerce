@@ -5,7 +5,9 @@ import ClientImage from "./ClientImage"; // Import the ClientImage component
 
 const DEFAULT_IMAGE = "/images/default-image.jpg"; // Path to a default image
 
-const PopularListingsSection: React.FC<{ popularProducts: any[] }> = ({ popularProducts }) => {
+const PopularListingsSection: React.FC<{ popularProducts: any[] }> = ({
+  popularProducts,
+}) => {
   return (
     <div className="w-full h-auto bg-white py-10 lg:py-16 xl:py-20 2xl:py-24 px-6 lg:px-12 xl:px-20 2xl:px-24">
       <div className="text-[#2a254b] text-[32px] lg:text-[36px] xl:text-[40px] 2xl:text-[44px] mb-10 lg:mb-16 xl:mb-20 2xl:mb-24">
