@@ -1,20 +1,34 @@
 import React from 'react';
 import Link from 'next/link';
-import ClientImage from './ClientImage'; // Import the ClientImage component
+import ClientImage from './ClientImage';
 
-const DEFAULT_IMAGE = '/images/default-image.jpg'; // Path to a default image
+const DEFAULT_IMAGE = '/images/default-image.jpg';
 
-const ListingsSection: React.FC<{ latestProducts: any[] }> = ({ latestProducts }) => {
+interface Product {
+  _id: string;
+  name: string;
+  price: number;
+  slug: {
+    current: string;
+  };
+  image?: {
+    asset?: {
+      url?: string;
+    };
+  };
+}
+
+const ListingsSection: React.FC<{ latestProducts: Product[] }> = ({ latestProducts }) => {
   return (
     <div className="w-full h-auto relative bg-white py-10 md:py-20 px-6 md:px-20">
       <div className="text-[#2a254b] text-[32px] mb-10 md:mb-20">New Ceramics</div>
       <div className="flex flex-wrap justify-center md:justify-between gap-8 md:flex-nowrap">
         {latestProducts.map(product => {
-          const imageUrl = product.image?.asset?.url || DEFAULT_IMAGE; // Use default image if URL is missing
+          const imageUrl = product.image?.asset?.url || DEFAULT_IMAGE;
 
           return (
             <div key={product._id} className="flex flex-col items-start gap-4 w-[163px] md:w-[305px]">
-              <div className="w-full relative pb-[125%]"> {/* Aspect Ratio */}
+              <div className="w-full relative pb-[125%]">
                 <Link href={`/products/${product.slug.current}`} passHref>
                   <div className="absolute top-0 left-0 w-full h-full">
                     <ClientImage

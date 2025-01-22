@@ -1,11 +1,24 @@
-// src/components/PopularListingsSection.tsx
 import React from "react";
 import Link from "next/link";
 import ClientImage from "./ClientImage"; // Import the ClientImage component
 
 const DEFAULT_IMAGE = "/images/default-image.jpg"; // Path to a default image
 
-const PopularListingsSection: React.FC<{ popularProducts: any[] }> = ({
+interface Product {
+  _id: string;
+  name: string;
+  price: number;
+  slug: {
+    current: string;
+  };
+  image?: {
+    asset?: {
+      url?: string;
+    };
+  };
+}
+
+const PopularListingsSection: React.FC<{ popularProducts: Product[] }> = ({
   popularProducts,
 }) => {
   return (
@@ -28,7 +41,7 @@ const PopularListingsSection: React.FC<{ popularProducts: any[] }> = ({
               <Link href={`/products/${product.slug.current}`} passHref>
                 <div className="absolute top-0 left-0 w-full h-full">
                   <ClientImage
-                    src={product.image.asset.url}
+                    src={product.image?.asset?.url || DEFAULT_IMAGE}
                     alt={product.name}
                     fallbackSrc={DEFAULT_IMAGE}
                     className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Product } from '@/types/Product';
 import { urlFor } from '@/sanity/lib/image';
@@ -12,6 +12,7 @@ interface ProductClientProps {
 
 const ProductClient: React.FC<ProductClientProps> = ({ product }) => {
   const { dispatch } = useCart();
+  const [quantity, setQuantity] = useState(1);
 
   const addToCart = () => {
     dispatch({ 
@@ -22,7 +23,7 @@ const ProductClient: React.FC<ProductClientProps> = ({ product }) => {
         description: product.description,
         price: product.price,
         image: product.image,
-        quantity: 1,
+        quantity: quantity,
         slug: product.slug,
         dimensions: product.dimensions,
         features: product.features,
@@ -90,6 +91,26 @@ const ProductClient: React.FC<ProductClientProps> = ({ product }) => {
             </div>
             <div className="mt-6">
               <p className="text-3xl font-bold mb-4">Price: £{product.price}</p>
+              <div className="flex items-center mb-6">
+                <button 
+                  onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}
+                  className="px-4 py-2 bg-gray-300 text-black font-semibold rounded-l-lg"
+                >
+                  -
+                </button>
+                <input 
+                  type="text"
+                  value={quantity}
+                  readOnly
+                  className="w-12 text-center text-xl font-semibold border-t border-b"
+                />
+                <button 
+                  onClick={() => setQuantity(quantity + 1)}
+                  className="px-4 py-2 bg-gray-300 text-black font-semibold rounded-r-lg"
+                >
+                  +
+                </button>
+              </div>
               <div className="flex gap-4">
                 <button 
                   onClick={addToCart}
