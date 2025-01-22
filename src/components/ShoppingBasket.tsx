@@ -64,9 +64,25 @@ const ShoppingBasket: React.FC = () => {
               </div>
               <div className="flex flex-col md:flex-row items-center gap-4 mt-4 md:mt-0 w-full md:w-1/2 justify-between">
                 <div className="flex items-center border px-4 py-3 bg-[#f9f9f9] rounded-lg shadow-md">
-                  <button onClick={() => dispatch({ type: 'ADD_TO_CART', payload: { ...item, quantity: item.quantity - 1 } })} className="text-[#000000] font-bold">-</button>
+                  <button
+                    onClick={() => {
+                      if (item.quantity > 1) {
+                        dispatch({ type: 'UPDATE_CART', payload: { ...item, quantity: item.quantity - 1 } });
+                      } else {
+                        removeFromCart(item._id);
+                      }
+                    }}
+                    className="text-[#000000] font-bold"
+                  >
+                    -
+                  </button>
                   <span className="text-[#2a254b] mx-4">{item.quantity}</span>
-                  <button onClick={() => dispatch({ type: 'ADD_TO_CART', payload: { ...item, quantity: item.quantity + 1 } })} className="text-[#000000] font-bold">+</button>
+                  <button
+                    onClick={() => dispatch({ type: 'UPDATE_CART', payload: { ...item, quantity: item.quantity + 1 } })}
+                    className="text-[#000000] font-bold"
+                  >
+                    +
+                  </button>
                 </div>
                 <span className="text-[#2a254b] text-lg font-semibold">£{item.price * item.quantity}</span>
                 <button 

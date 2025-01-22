@@ -106,7 +106,7 @@ const TopNav: React.FC = () => {
     <div className="TopNav relative bg-white mb-0">
       {/* Desktop View */}
       <div className="hidden md:block w-full max-w-[1440px] mx-auto h-[132px] relative bg-white px-4 lg:px-8 xl:px-12">
-        <div className="absolute left-[28px] top-[20px] flex items-center">
+      <div className="absolute left-[28px] top-[20px] flex items-center">
           <div className="cursor-pointer">
             <Image
               src="/icons/search.svg"
@@ -179,6 +179,7 @@ const TopNav: React.FC = () => {
           {renderCategoryLinks}
         </div>
         <div className="absolute w-[calc(100%-56px)] left-[28px] top-[70px] border border-black/10"></div>
+      
       </div>
 
       {/* Mobile View */}
@@ -207,6 +208,11 @@ const TopNav: React.FC = () => {
               </span>
             )}
           </Link>
+          {isSignedIn && (
+            <Link href="/tracking" className="flex items-center">
+              <FiPackage size={24} />
+            </Link>
+          )}
           {isSignedIn ? (
             <div className="relative" ref={profileRef}>
               <Link href="/profile" className="flex items-center cursor-pointer">

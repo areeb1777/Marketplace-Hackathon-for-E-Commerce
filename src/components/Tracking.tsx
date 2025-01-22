@@ -1,15 +1,12 @@
-"use client";
+'use client';
 
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 
 interface TrackingInfo {
-  // Define the structure of your tracking information here
-  // Example:
   status: string;
   lastLocation: string;
   expectedDelivery: string;
-  // Add other relevant properties
 }
 
 const Tracking: React.FC = () => {
@@ -38,7 +35,7 @@ const Tracking: React.FC = () => {
   return (
     <div className="tracking-container bg-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto mt-10">
       <h2 className="text-2xl font-bold mb-4 text-center text-blue-600">Track Your Order</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 text-center">
         <div className="relative">
           <AiOutlineSearch className="absolute left-3 top-3 text-gray-400" />
           <input
@@ -52,7 +49,7 @@ const Tracking: React.FC = () => {
         </div>
         <button
           type="submit"
-          className="flex items-center justify-center px-6 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex items-center justify-center px-6 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 mx-auto"
         >
           Track
         </button>
