@@ -1,0 +1,13 @@
+Test Case ID,Description,Test Steps,Expected Result,Actual Result,Status,Security Level,Assigned To,Remarks
+TC01,Validate product listing page,Open product page>Verify products,Product is displayed correctly,Product displayed correctly,Passed,Medium,_,No issue found
+TC02,Verify responsiveness,View on my mobile,Fully responsive,Fully responsive,Passed,Medium,_,No issue found
+TC03,Check cart functionality,Add products to cart>Verify cart components,Cart updates with added products,Cart updates as expected,Passed,High,_,Work as expected
+TC04,Verify product listing on the Home Page,Navigate to the Home Page,Products listed correctly,Products listed correctly,Passed,Low,_,No issue found
+TC05,Validate search functionality,Enter a search term in the search bar,Accurate search results,Accurate search results,Passed,Medium,_,No issue found
+TC06,"Verify cart operations (adding, updating, removing items)",Add an item to the cart from the product listing,All operations work as expected,All operations work as expected,Passed,High,_,No issue found
+TC07,Verify dynamic routing to product details page,Click on a product from the listing on the Home Page,Product details page loads correctly,Product details page loads correctly,Passed,Low,_,No issue found
+TC08,Verify error handling in case of API failures,Simulate an API error,Error message should appear,Error message should appear,Passed,Medium,_,No issue found
+TC09,Optimize performance using Lighthouse,Run a Lighthouse audit on the Home Page,Performance score should be high,Performance score should be high,Passed,Low,_,No issue found
+TC10,Verify cross-browser compatibility,Open the Home Page on different browsers,Consistent rendering and functionality,Consistent rendering and functionality,Passed,Medium,_,No issue found
+TC11,Verify the filter category functionality on the Products Page,"Select a filter category (e.g., ""Chairs"")",All chairs show on the products page,All chairs show on the products page,Passed,Medium,_,No issue found
+TC12,Verify user authentication functionality (signin and signout),Test login with valid/invalid credentials and logout functionality,User logs in and out successfully with valid credentials,User logs in and out successfully with valid credentials,Passed,High,_,No issue found
